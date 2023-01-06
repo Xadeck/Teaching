@@ -9,12 +9,13 @@ using namespace std;
 // 5. I need to let the user to put the amount - ✓
 // 6. I need to let the user to see the balance - ✓
 // 7. I need to let the user to see the statistics - ✓
-// 8. I need to fix bugs :) -
+// 8. I need to fix bugs :) - 
 
 /*
 THE LIST OF SOLVED BUGS :
  - If the user enters a value that is not between 1 and 3 (for income) or 1 and 5 (for expense),
-the program will still execute the corresponding menu option. - ✓
+the program will still execute the corresponding menu option. - Solved by not by all , when the user put one number and 
+letter the program don't run good.
 
  - When I check one time the Statistics , and after I put some income or expense for example ,
   when I check statistics second time it shows me all the data that was there until I checked the statistics,
