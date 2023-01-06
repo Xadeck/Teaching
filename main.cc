@@ -2,7 +2,7 @@
 
 int main(int argc, char **argv)
 {
-  std::cout << "Buna ziua\n";
+  std::cout << "Bonjour!\n";
 
   return 0;
 }
