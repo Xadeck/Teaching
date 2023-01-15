@@ -1,2 +1,4 @@
-cc_binary(name="main",
-          srcs=["main.cc"])
+cc_binary(
+    name = "main",
+    srcs = ["main.cc"],
+)
