@@ -1,0 +1,20 @@
+STUDENT DATA
+
+What I want my app to have :
+
+1. The possibility to introduce the name of the student.
+2. The possibility to introduce the lesson
+3. The possibility to introduce the grades at that lesson
+4. The possibility to enter the grades for how many lessons he wants
+5. The possibility to enter he's personal details, like hobbies , experiencies etc ...
+7. The possibility to view all he's personal data , average grade of lessons 
+
+
+What I need to do :
+
+1. Enter the libraries that I will need - 🗸
+2. Make the possibility to enter the name of student - 🗸
+3. I need to make an array or vector with lessons - 🗸
+4. I want to show the lessons to the user - 🗸
+5. Make possibility to choose the lessson - 🗸
+6. I need to put the user to enter again the lesson if he put a wrong number - 
