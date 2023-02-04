@@ -17,4 +17,7 @@ What I need to do :
 3. I need to make an array or vector with lessons - 🗸
 4. I want to show the lessons to the user - 🗸
 5. Make possibility to choose the lessson - 🗸
-6. I need to put the user to enter again the lesson if he put a wrong number - 
+6. I need to put the user to enter again the lesson if he put a wrong number - 🗸
+7. I need to let the user to introduce he's personal details , hobbies , etc.. -  🗸
+8. I need to make a menu for him , to choose what he wants to do - 🗸
+9. I need to let the user to introduce how many grades he wants on the lessons - 
