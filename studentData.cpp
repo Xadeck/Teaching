@@ -17,9 +17,9 @@ public:
 void menu()
 {
 
-    cout << "*******************************************************************************************" << endl;
-    cout << "Choose |1|Enter your data |2|Lessons |3|Averages and Data        (press other key for Exit)" << endl;
-    cout << "*******************************************************************************************" << endl;
+    cout << "*********************************************************************************************************" << endl;
+    cout << "Choose |1|Enter your data |2|Lessons |3|Averages and Data |4|Change name       (press other key for Exit)" << endl;
+    cout << "*********************************************************************************************************" << endl;
 }
 
 // Lessons function
@@ -55,15 +55,6 @@ void data(string &personal_data)
 }
 
 // Average function
-void average(int avmath, int avenglish, int avprogramming, int avhistory, vector<int> math, vector<int> english,
-            vector<int> programming, vector<int> history)
-{
-    avmath /= math.size();
-    avenglish /= english.size();
-    avprogramming /= programming.size();
-    avhistory /= history.size();
-
-}
 
 int main()
 {
@@ -79,13 +70,14 @@ int main()
     int enter_lesson = 0;
     int num_of_grades;
     int grade;
-    int avmath = 0, avenglish = 0, avprogramming = 0, avhistory = 0;
+    float avmath = 0, avenglish = 0, avprogramming = 0, avhistory = 0;
 
     // Enter the name
     cout << "Enter your first name : ";
     cin >> user.name;
     cout << "Enter your second name : ";
     cin >> user.sname;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
     do
     {
@@ -97,10 +89,11 @@ int main()
         // Enter personal data
         if (menu_choose == 1)
         {
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             data(personal_data);
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear the input buffer
+            // Clear the input buffer
         }
-
+        //_____________________________________________________________________________________________________________________________________________
         // Show the lessons and choose one
         if (menu_choose == 2)
         {
@@ -110,10 +103,9 @@ int main()
             if (choose_lesson != "")
             {
                 cout << "You chose " << choose_lesson << "\n";
+                cout << "How many grades do you want to enter at " << choose_lesson << " ?\n";
+                cin >> num_of_grades;
             }
-
-            cout << "How many grades do you want to enter at " << choose_lesson << " ?\n";
-            cin >> num_of_grades;
 
             // Enter grades for Math
             if (choose_lesson == "Math")
@@ -125,6 +117,7 @@ int main()
                     avmath += grade;
                     math.push_back(grade);
                 }
+                avmath /= math.size();
             }
 
             // Enter grades for English
@@ -137,6 +130,7 @@ int main()
                     avenglish += grade;
                     english.push_back(grade);
                 }
+                avenglish /= english.size();
             }
 
             // Enter grades for Programming
@@ -149,6 +143,7 @@ int main()
                     avprogramming += grade;
                     programming.push_back(grade);
                 }
+                avprogramming /= programming.size();
             }
 
             // Enter grades for history
@@ -161,22 +156,47 @@ int main()
                     avhistory += grade;
                     history.push_back(grade);
                 }
+                avhistory /= history.size();
             }
         }
+        //_____________________________________________________________________________________________________________________________________________
 
         // Average and data output
         if (menu_choose == 3)
         {
-            average(avmath, avenglish, avprogramming, avhistory, math, english, programming, history);
+
             cout << "Name : " << user.name << " " << user.sname << "\n";
             cout << "About you : " << personal_data << "\n";
-            cout << "Math average : " << avmath << "\n";
-            cout << "English average : " << avenglish << "\n";
-            cout << "Programming average : " << avprogramming << "\n";
-            cout << "History average : " << avhistory << "\n";
+            if (avmath != 0)
+            {
+                cout << "Math average : " << avmath << "\n";
+            }
+            if (avenglish != 0)
+            {
+                cout << "English average : " << avenglish << "\n";
+            }
+            if (avprogramming != 0)
+            {
+                cout << "Programming average : " << avprogramming << "\n";
+            }
+            if (avhistory != 0)
+            {
+                cout << "History average : " << avhistory << "\n";
+            }
         }
 
-    } while (menu_choose >= 1 && menu_choose < 4);
+        //_____________________________________________________________________________________________________________________________________________
+
+        // Change name
+        if (menu_choose == 4)
+        {
+            cout << "Enter your first name : ";
+            cin >> user.name;
+            cout << "Enter your second name : ";
+            cin >> user.sname;
+        }
+
+    } while (menu_choose >= 1 && menu_choose <= 4);
 
     return 0;
 }

@@ -21,4 +21,5 @@ What I need to do :
 7. I need to let the user to introduce he's personal details , hobbies , etc.. -  🗸
 8. I need to make a menu for him , to choose what he wants to do - 🗸
 9. I need to let the user to introduce how many grades he wants on the lessons - 🗸
-10.I need to let the user to see data about his averages and him - 
+10.I need to let the user to see data about his averages and him - 🗸
+11.Fix the bugs - 🗸
