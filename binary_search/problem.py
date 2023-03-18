@@ -24,6 +24,7 @@ birthdays = sorted(birthdays,
                    key=lambda p:(p[0].month, p[0].day))
 moment_b = time.time()
 
+# Homework: use binary search to find `index` faster.
 index = birthdays.index(Nina)
 moment_c = time.time()
 
