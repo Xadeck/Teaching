@@ -11,10 +11,10 @@ import time
 birthdays = []
 
 for i in range(1000000):
-    year = random.randint(1975, 2006)
-    month = random.randint(1,12)
-    day = random.randint(1,28)
-    birthdays.append((datetime.date(year, month, day), "P %d" % i))
+    y= random.randint(1975, 2006)
+    m= random.randint(1,12)
+    d= random.randint(1,28)
+    birthdays.append((datetime.date(y, m, d), "P %d" % i))
 
 Nina = (datetime.date(1988, 12, 27), "Nina")
 birthdays.append(Nina)
