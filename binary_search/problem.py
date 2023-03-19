@@ -1,5 +1,3 @@
-#!/usr/local/bin/python3
-
 import datetime
 import random
 import time
@@ -10,12 +8,13 @@ import time
 
 birthdays = []
 
-for i in range(1000000):
+for i in range(10):
     y= random.randint(1975, 2006)
     m= random.randint(1,12)
     d= random.randint(1,28)
     birthdays.append((datetime.date(y, m, d), "P %d" % i))
 
+print(birthdays)
 Nina = (datetime.date(1988, 12, 27), "Nina")
 birthdays.append(Nina)
 
