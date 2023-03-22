@@ -21,10 +21,10 @@ def find_nina(target, birthdays):
 birthdays = []
 
 # So I will make a list with (x) random dates
-for i in range(1000):
-    day = random.randint(1, 28)
-    month = random.randint(1, 12)
-    year = random.randint(1980, 2023)
+for i in range(1000000):
+    day = random.randint(1, 26)
+    month = random.randint(1, 11)
+    year = random.randint(1989, 2023)
 
     birthdays.append((datetime.date(year, month, day), f"Person {i}"))
 
@@ -43,9 +43,9 @@ index = find_nina(target, birthdays)
 time_c = time.time()
 
 # Now I should print the result:
-print(f"Person before Nina is: {birthdays[index-1][1]}")
+print(f"Person before Nina is: {birthdays[index-1]}")
 print(f"Nina is: {birthdays[index][1]}")
-print(f"Person after Nina is: {birthdays[(index + 1)  % len(birthdays)][1]}")
+print(f"Person after Nina is: {birthdays[(index + 1)  % len(birthdays)]}")
 
 print(f"Sort time: {time_b - time_a:.6f} seconds")
 print(f"Find time: {time_c - time_b:.6f} seconds")

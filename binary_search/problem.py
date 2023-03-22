@@ -14,7 +14,6 @@ for i in range(1000000):
     d = random.randint(1, 28)
     birthdays.append((datetime.date(y, m, d), "P %d" % i))
 
-print(birthdays)
 Nina = (datetime.date(1988, 12, 27), "Nina")
 birthdays.append(Nina)
 
