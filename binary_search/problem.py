@@ -8,7 +8,7 @@ import time
 
 birthdays = []
 
-for i in range(1000000):
+for i in range(10000000):
     y = random.randint(1975, 2006)
     m = random.randint(1, 12)
     d = random.randint(1, 28)
