@@ -2,38 +2,42 @@ import turtle
 import random
 
 s = turtle.getscreen()
-s.bgcolor("lightblue")
+s.bgcolor("black")
 
-p1 = turtle.Turtle()
-p1.speed(100)
-p2 = p1.clone()
+# intialize list of house positions
+houselist = []
 
-# setting the turtles and put them at their position
-p1.color("red")
-p1.shape("turtle")
-p1.penup()
-p1.goto(-200, 100)
 
-p2.color("blue")
-p2.shape("turtle")
-p2.penup()
-p2.goto(-200, -100)
+# intialize the players
+def initialize(player, color, position, speed):
+    player.color(color)
+    player.shape("turtle")
+    player.penup()
+    player.speed(speed)
+    player.goto(position[0], position[1])
+    pos = player.pos()
+    player.fd(500)
+    # save the house position
+    housepos = player.pos()
+    player.pendown()
+    player.circle(40)
+    player.penup()
+    # bring the turtles back to their start position
+    player.setpos(pos)
+    # appending house positions in a list
+    houselist.append(housepos)
 
-# make the finish for both
 
-p1.goto(300, 60)
-p1.pendown()
-p1.circle(40)
-p1.penup()
-p1.goto(-200, 100)
+colors = ("red", "blue", "orange", "purple", "green", "yellow")
+first_position = (-200, 200)
 
-p2.goto(300, -140)
-p2.pendown()
-p2.circle(40)
-p2.penup()
-p2.goto(-200, -100)
+players = [turtle.Turtle() for n in range(4)]
+for i in players:
+    initialize(i, random.choice(colors), first_position, 0)
+    first_position = (first_position[0], first_position[1] - 100)
 
-# creating the die
+
+# create the die
 dice = [
     '\u2680',  # ⚀
     '\u2681',  # ⚁
@@ -44,25 +48,18 @@ dice = [
 ]
 
 # create the game
-p1.speed(1)
-p2.speed(1)
-for i in range(20):
-    if p1.pos() >= (300, 100):
-        print("Player 1 Win !")
-        break
-    elif p2.pos() >= (300, -100):
-        print("Player 2 Win !")
-        break
-
-    else:
-        enter_p1 = input("Player 1 'Enter' to roll the die !")
-        die_outcome = random.choice(range(1, 7))
-        print(f"You got :{dice[die_outcome-1]}")
-        print(f"You move {die_outcome * 20} point")
-        p1.fd(die_outcome * 20)
-
-        enter_p2 = input("Player 2 'Enter' to roll the dice !")
-        die_outcome = random.choice(range(1, 7))
-        print(f"You got {dice[die_outcome - 1]}")
-        print(f"You move {die_outcome * 20} points")
-        p2.fd(die_outcome * 20)
+game_over = False
+while not game_over:
+    for i in range(len(players)):
+        player = players[i]
+        housepos = houselist[i]
+        if player.distance(housepos) < 50:
+            print(f"Player {i+1} WIN !!! ")
+            game_over = True
+            break
+        else:
+            input(f"Player {i+1} roll the dice, press 'Enter'")
+            dice_outcome = random.choice(range(1, 7))
+            print(f"Player {i+1} got {dice[dice_outcome - 1]}")
+            print(f"Player {i+1} move {dice_outcome * 20} points")
+            player.fd(20 * dice_outcome)
