@@ -48,9 +48,7 @@ dice = [
 # create the game
 game_over = False
 while not game_over:
-    for i in range(len(players)):
-        player = players[i]
-        housepos = houselist[i]
+    for (i, (player, housepos)) in enumerate(zip(players, houselist)):
         if player.distance(housepos) < 50:
             print(f"Player {i+1} WIN !!! ")
             game_over = True
