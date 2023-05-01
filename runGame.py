@@ -5,6 +5,8 @@ s = turtle.getscreen()
 s.bgcolor("black")
 
 # intialize the players
+
+
 def initialize(player, color, position, speed):
     player.color(color)
     player.shape("turtle")
@@ -31,7 +33,8 @@ first_position = (-200, 200)
 houselist = []
 players = [turtle.Turtle() for n in range(4)]
 for player in players:
-    houselist.append(initialize(player, random.choice(colors), first_position, 0))
+    houselist.append(initialize(
+        player, random.choice(colors), first_position, 0))
     first_position = (first_position[0], first_position[1] - 100)
 
 
