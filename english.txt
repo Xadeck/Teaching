@@ -1,0 +1,23 @@
+: colon
+; semi-colon
+- dash (minus)
+/ slash
+^ carret
+& ampersand
+[ bracket (opening)
+] bracket (closing)
+{ brace (opening)
+} brace (closing)
+( parenthesis (opening)
+) parenthesis (closing)
+* star
+' single quote
+" double quote
+` backtick
+| pipe
+~ tilde
+! exclamation mark
+? question mark
+@ arobas but we say "at"
+
+
