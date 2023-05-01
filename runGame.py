@@ -4,10 +4,6 @@ import random
 s = turtle.getscreen()
 s.bgcolor("black")
 
-# intialize list of house positions
-houselist = []
-
-
 # intialize the players
 def initialize(player, color, position, speed):
     player.color(color)
@@ -25,15 +21,17 @@ def initialize(player, color, position, speed):
     # bring the turtles back to their start position
     player.setpos(pos)
     # appending house positions in a list
-    houselist.append(housepos)
+    return housepos
 
 
 colors = ("red", "blue", "orange", "purple", "green", "yellow")
 first_position = (-200, 200)
 
+# intialize list of house positions
+houselist = []
 players = [turtle.Turtle() for n in range(4)]
-for i in players:
-    initialize(i, random.choice(colors), first_position, 0)
+for player in players:
+    houselist.append(initialize(player, random.choice(colors), first_position, 0))
     first_position = (first_position[0], first_position[1] - 100)
 
 
@@ -57,9 +55,9 @@ while not game_over:
             print(f"Player {i+1} WIN !!! ")
             game_over = True
             break
-        else:
-            input(f"Player {i+1} roll the dice, press 'Enter'")
-            dice_outcome = random.choice(range(1, 7))
-            print(f"Player {i+1} got {dice[dice_outcome - 1]}")
-            print(f"Player {i+1} move {dice_outcome * 20} points")
-            player.fd(20 * dice_outcome)
+
+        input(f"Player {i+1} roll the dice, press 'Enter'")
+        dice_outcome = random.choice(range(1, 7))
+        print(f"Player {i+1} got {dice[dice_outcome - 1]}")
+        print(f"Player {i+1} move {dice_outcome * 20} points")
+        player.fd(20 * dice_outcome)
