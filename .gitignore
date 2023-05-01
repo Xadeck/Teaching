@@ -37,3 +37,8 @@ bazel-*
 # Vim
 *.swap
 *.swp
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
