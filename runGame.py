@@ -32,9 +32,9 @@ first_position = (-200, 200)
 # intialize list of house positions
 houselist = []
 players = [turtle.Turtle() for n in range(4)]
-for player in players:
+for (i, player) in enumerate(players):
     houselist.append(initialize(
-        player, random.choice(colors), first_position, 0))
+        player, colors[i % len(players)], first_position, 0))
     first_position = (first_position[0], first_position[1] - 100)
 
 
